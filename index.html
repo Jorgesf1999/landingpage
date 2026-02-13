@@ -30,6 +30,8 @@
             --gradient: linear-gradient(135deg, #00a8b5 0%, #4ecdc4 100%);
             --success: #4caf50;
             --error: #f44336;
+            --whatsapp: #25D366;
+            --ecuador: #fcd116; /* Color amarillo de la bandera de Ecuador */
         }
 
         /* Tipografía */
@@ -162,12 +164,12 @@
         }
 
         .btn-success {
-            background: var(--success);
+            background: var(--whatsapp);
             color: white;
         }
 
         .btn-success:hover {
-            background: #45a049;
+            background: #128C7E;
             transform: translateY(-3px);
         }
 
@@ -247,6 +249,19 @@
             margin: 1rem 0;
         }
 
+        /* Badge Ecuador */
+        .ecuador-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fcd116, #003893, #ed1c24);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
         /* Sección Contacto */
         .contact {
             padding: 5rem 5%;
@@ -297,10 +312,17 @@
         .contact-info-text h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .contact-info-text p {
             opacity: 0.9;
+        }
+
+        .ecuador-flag {
+            font-size: 1.2rem;
         }
 
         .contact-form {
@@ -375,6 +397,15 @@
         .testimonial-author {
             font-weight: 600;
             color: var(--primary);
+        }
+
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
         }
 
         /* Sección Newsletter */
@@ -498,7 +529,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #25D366;
+            background: var(--whatsapp);
             color: white;
             width: 60px;
             height: 60px;
@@ -516,6 +547,26 @@
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-5px);
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float::after {
+            content: "Ecuador";
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
         }
 
         /* Animaciones */
@@ -563,7 +614,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">HydroFresh</div>
+            <div class="logo">HydroFresh Ecuador <span class="ecuador-badge">🇪🇨 Hecho en Ecuador</span></div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
@@ -578,14 +629,14 @@
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1>Hidratación Inteligente<br>para tu Mejor Versión</h1>
-                <p>Descubre HydroFresh: la bebida que revoluciona tu hidratación con electrolitos esenciales y vitaminas naturales</p>
+                <p>Descubre HydroFresh Ecuador: la bebida que revoluciona tu hidratación con electrolitos esenciales y vitaminas naturales</p>
                 <a href="#contacto" class="btn btn-primary">Solicita Información</a>
                 <a href="#beneficios" class="btn btn-secondary">Conocer Más</a>
             </div>
         </section>
 
         <section id="beneficios" class="benefits">
-            <h2>¿Por qué elegir HydroFresh?</h2>
+            <h2>¿Por qué elegir HydroFresh Ecuador?</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">💧</div>
@@ -600,12 +651,12 @@
                 <div class="benefit-card">
                     <div class="benefit-icon">🌿</div>
                     <h3>100% Natural</h3>
-                    <p>Sin azúcares añadidos, sin colorantes artificiales, solo ingredientes naturales</p>
+                    <p>Sin azúcares añadidos, sin colorantes artificiales, ingredientes ecuatorianos</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">💪</div>
-                    <h3>Recuperación Activa</h3>
-                    <p>Ideal para después del ejercicio, ayuda a la recuperación muscular</p>
+                    <div class="benefit-icon">🏔️</div>
+                    <h3>Agua de los Andes</h3>
+                    <p>Elaborada con agua pura de manantiales ecuatorianos</p>
                 </div>
             </div>
         </section>
@@ -616,67 +667,76 @@
                 <div class="product-card">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
                     <div class="product-info">
-                        <h3>HydroFresh Citrus</h3>
-                        <p>Refrescante sabor a cítricos con vitamina C y zinc</p>
-                        <p class="product-price">$24.99</p>
-                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Citrus')">Consultar</a>
+                        <h3>HydroFresh Citrus 🇪🇨</h3>
+                        <p>Refrescante sabor a cítricos ecuatorianos con vitamina C y zinc</p>
+                        <p class="product-price">$3.99</p>
+                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Citrus')">Consultar por WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1553279768-8652c04e0ecb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
                     <div class="product-info">
-                        <h3>HydroFresh Berry</h3>
-                        <p>Mezcla de frutos rojos con antioxidantes</p>
-                        <p class="product-price">$26.99</p>
-                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Berry')">Consultar</a>
+                        <h3>HydroFresh Berry 🇪🇨</h3>
+                        <p>Mezcla de frutos rojos andinos con antioxidantes</p>
+                        <p class="product-price">$4.50</p>
+                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Berry')">Consultar por WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
                     <div class="product-info">
-                        <h3>HydroFresh Tropical</h3>
-                        <p>Sabor tropical con electrolitos y magnesio</p>
-                        <p class="product-price">$25.99</p>
-                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Tropical')">Consultar</a>
+                        <h3>HydroFresh Tropical 🇪🇨</h3>
+                        <p>Sabor tropical con electrolitos y magnesio de la costa ecuatoriana</p>
+                        <p class="product-price">$4.25</p>
+                        <a href="#" class="btn btn-primary" onclick="enviarConsultaProducto('Tropical')">Consultar por WhatsApp</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contacto" class="contact">
-            <h2>Contacta con Nosotros</h2>
+            <h2>Contacta con Nosotros en Ecuador</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-info-item">
                         <div class="contact-info-icon">📱</div>
                         <div class="contact-info-text">
-                            <h4>WhatsApp</h4>
+                            <h4>WhatsApp Ecuador <span class="ecuador-flag">🇪🇨</span></h4>
                             <p>098 592 9825</p>
                             <p>Respuesta en menos de 1 hora</p>
+                            <p><small>(Cobertura nacional)</small></p>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">📧</div>
                         <div class="contact-info-text">
                             <h4>Email</h4>
-                            <p>info@hydrofresh.com</p>
-                            <p>ventas@hydrofresh.com</p>
+                            <p>info@hydrofresh.ec</p>
+                            <p>ventas@hydrofresh.ec</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">📍</div>
                         <div class="contact-info-text">
-                            <h4>Dirección</h4>
-                            <p>Av. Principal 123</p>
-                            <p>Asunción, Paraguay</p>
+                            <h4>Oficina Principal</h4>
+                            <p>Av. República de El Salvador</p>
+                            <p>Quito, Ecuador</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">🏭</div>
+                        <div class="contact-info-text">
+                            <h4>Planta de Producción</h4>
+                            <p>Vía a Sangolquí</p>
+                            <p>Valle de los Chillos, Ecuador</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">⏰</div>
                         <div class="contact-info-text">
-                            <h4>Horario</h4>
-                            <p>Lunes a Viernes: 8:00 - 20:00</p>
-                            <p>Sábados: 9:00 - 13:00</p>
+                            <h4>Horario Ecuador</h4>
+                            <p>Lunes a Viernes: 8:00 - 20:00 (ECT)</p>
+                            <p>Sábados: 9:00 - 13:00 (ECT)</p>
                         </div>
                     </div>
                 </div>
@@ -693,17 +753,32 @@
                     </div>
 
                     <div class="form-group">
-                        <label>📱 Teléfono *</label>
-                        <input type="tel" id="telefono" required placeholder="0985 929 825">
+                        <label>📱 Teléfono (Ecuador) *</label>
+                        <input type="tel" id="telefono" required placeholder="098 592 9825">
+                        <small>Ejemplo: 098 592 9825</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🏙️ Ciudad</label>
+                        <select id="ciudad">
+                            <option value="Quito">Quito</option>
+                            <option value="Guayaquil">Guayaquil</option>
+                            <option value="Cuenca">Cuenca</option>
+                            <option value="Ambato">Ambato</option>
+                            <option value="Loja">Loja</option>
+                            <option value="Manta">Manta</option>
+                            <option value="Santo Domingo">Santo Domingo</option>
+                            <option value="Otra">Otra ciudad</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label>🥤 Producto de Interés</label>
                         <select id="producto">
-                            <option value="Citrus">HydroFresh Citrus</option>
-                            <option value="Berry">HydroFresh Berry</option>
-                            <option value="Tropical">HydroFresh Tropical</option>
-                            <option value="Paquete">Paquete Promocional</option>
+                            <option value="Citrus">HydroFresh Citrus (Cítricos)</option>
+                            <option value="Berry">HydroFresh Berry (Frutos rojos andinos)</option>
+                            <option value="Tropical">HydroFresh Tropical (Sabores costeños)</option>
+                            <option value="Paquete">Paquete Promocional Ecuador</option>
                             <option value="Otro">Otro / No especificado</option>
                         </select>
                     </div>
@@ -720,48 +795,52 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-success">Enviar por WhatsApp</button>
+                    <button type="submit" class="btn btn-success">📱 Enviar por WhatsApp Ecuador</button>
                 </form>
             </div>
         </section>
 
         <section id="testimonios" class="testimonials">
-            <h2>Lo que dicen nuestros clientes</h2>
+            <h2>Lo que dicen nuestros clientes en Ecuador</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p>"Desde que tomo HydroFresh, mi rendimiento en el gimnasio mejoró notablemente. La hidratación es increíble."</p>
                     <p class="testimonial-author">- Carlos Rodríguez</p>
+                    <div class="testimonial-location">📍 Quito, Ecuador</div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Me encanta que sea natural y no tenga azúcar. El sabor es delicioso y realmente me mantiene hidratada todo el día."</p>
+                    <p>"Me encanta que sea natural y use frutos ecuatorianos. El sabor es delicioso."</p>
                     <p class="testimonial-author">- Ana Martínez</p>
+                    <div class="testimonial-location">📍 Guayaquil, Ecuador</div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Perfecto para mis entrenamientos de running. La recuperación después de correr es mucho mejor."</p>
+                    <p>"Perfecto para el clima de la costa. La recuperación después del calor es mucho mejor."</p>
                     <p class="testimonial-author">- Miguel Sánchez</p>
+                    <div class="testimonial-location">📍 Manta, Ecuador</div>
                 </div>
             </div>
         </section>
 
         <section class="newsletter">
-            <h2>Mantente Hidratado</h2>
-            <p>Suscríbete para recibir ofertas exclusivas y consejos de hidratación</p>
+            <h2>Mantente Hidratado en Ecuador</h2>
+            <p>Suscríbete para recibir ofertas exclusivas en Ecuador y consejos de hidratación</p>
             <form class="newsletter-form" id="newsletterForm">
                 <input type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit" class="btn btn-primary">Suscribirme</button>
+                <button type="submit" class="btn btn-primary">Suscribirme 🇪🇨</button>
             </form>
         </section>
     </main>
 
-    <a href="https://wa.me/+593985929825?text=Hola%21%20Quiero%20informaci%C3%B3n%20sobre%20HydroFresh" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/593985929825?text=Hola%21%20Quiero%20informaci%C3%B3n%20sobre%20HydroFresh%20Ecuador" class="whatsapp-float" target="_blank">
         📱
     </a>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>HydroFresh</h4>
-                <p>Hidratación inteligente para una vida activa y saludable.</p>
+                <h4>HydroFresh Ecuador</h4>
+                <p>Hidratación inteligente hecha en Ecuador para el mundo.</p>
+                <p>🇪🇨 Orgullosamente ecuatoriano</p>
             </div>
             <div class="footer-section">
                 <h4>Enlaces Rápidos</h4>
@@ -769,15 +848,16 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#beneficios">Beneficios</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#contacto">Contacto Ecuador</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Contacto</h4>
+                <h4>Contacto Ecuador</h4>
                 <ul>
-                    <li>📧 info@hydrofresh.com</li>
-                    <li>📱 +593 985 929 825</li>
-                    <li>📍 Asunción, Paraguay</li>
+                    <li>📧 info@hydrofresh.ec</li>
+                    <li>📱 098 592 9825</li>
+                    <li>📍 Quito, Ecuador</li>
+                    <li>🌐 www.hydrofresh.ec</li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -791,13 +871,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HydroFresh. Todos los derechos reservados.</p>
+            <p>&copy; 2024 HydroFresh Ecuador. Todos los derechos reservados.</p>
+            <p>🇪🇨 Hecho en Ecuador con amor y productos naturales 🇪🇨</p>
         </div>
     </footer>
 
     <script>
-        // Número de WhatsApp (formato internacional sin +)
-        const WHATSAPP_NUMBER = '+593985929825'; // 593 es código de Ecuador, 985929825 es tu número
+        // Número de WhatsApp Ecuador (código +593)
+        const WHATSAPP_NUMBER = '593985929825'; // 593 es código de Ecuador, 985929825 es tu número
 
         // Función para mostrar notificaciones
         function showNotification(message, type) {
@@ -813,7 +894,7 @@
 
         // Función para enviar consulta de producto específico
         function enviarConsultaProducto(producto) {
-            const mensaje = `Hola! Me interesa el producto HydroFresh ${producto}. ¿Podrían darme más información?`;
+            const mensaje = `Hola! Me interesa el producto HydroFresh ${producto} para Ecuador. ¿Podrían darme más información?`;
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
         }
@@ -826,6 +907,7 @@
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
+            const ciudad = document.getElementById('ciudad').value;
             const producto = document.getElementById('producto').value;
             const mensaje = document.getElementById('mensaje').value.trim();
             const terminos = document.getElementById('terminos').checked;
@@ -846,13 +928,22 @@
                 return;
             }
 
+            // Validar teléfono ecuatoriano (formato básico)
+            const telefonoLimpio = telefono.replace(/\s+/g, '');
+            if (!telefonoLimpio.match(/^0?9\d{8}$/)) {
+                showNotification('Por favor, ingresa un número de teléfono ecuatoriano válido (Ej: 0985929825)', 'error');
+                return;
+            }
+
             // Crear mensaje para WhatsApp
-            const mensajeWhatsApp = `*Nuevo contacto desde la web HydroFresh*%0A%0A` +
+            const mensajeWhatsApp = `*Nuevo contacto desde la web HydroFresh Ecuador*%0A%0A` +
                 `*Nombre:* ${nombre}%0A` +
                 `*Email:* ${email}%0A` +
                 `*Teléfono:* ${telefono}%0A` +
+                `*Ciudad:* ${ciudad}%0A` +
                 `*Producto de interés:* ${producto}%0A` +
-                `*Mensaje:* ${mensaje}`;
+                `*Mensaje:* ${mensaje}%0A%0A` +
+                `*🇪🇨 Cliente desde Ecuador*`;
 
             // Abrir WhatsApp con el mensaje
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensajeWhatsApp}`;
@@ -871,7 +962,7 @@
             const email = this.querySelector('input[type="email"]').value;
             
             if (email.includes('@') && email.includes('.')) {
-                const mensaje = `Hola! Quiero suscribirme al newsletter. Mi email es: ${email}`;
+                const mensaje = `Hola! Quiero suscribirme al newsletter de HydroFresh Ecuador. Mi email es: ${email}`;
                 const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
                 window.open(url, '_blank');
                 showNotification('¡Gracias por suscribirte!', 'success');
@@ -923,11 +1014,4 @@
         }, observerOptions);
 
         document.querySelectorAll('.benefit-card, .product-card, .testimonial-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+            el.style.opacity =
